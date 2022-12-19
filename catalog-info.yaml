@@ -1,0 +1,10 @@
+
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: backstage-entities-sandbox
+spec:
+  type: url
+  targets:
+    - ./*.yaml
+    - ./*catalog-info.yaml

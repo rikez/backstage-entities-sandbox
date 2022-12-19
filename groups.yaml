@@ -1,0 +1,52 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: backstage-org
+  description: The Backstage organization
+  annotations:
+    github.com/team-slug: backstage/backstage-org
+spec:
+  type: organization
+  profile:
+    displayName: Backstage Corp
+    email: backstage@example.com
+    picture: https://avatars.dicebear.com/api/identicon/info@example.com.svg?background=%23fff&margin=25
+  children: [infra]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: infra
+  description: The infra dept
+  annotations:
+    github.com/team-slug: backstage/infra-dept
+spec:
+  type: department
+  profile:
+    displayName: Infra Dept
+    email: backstage-infra@example.com
+  children: [developer-platform]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: logistics
+  description: The logistics dept
+spec:
+  type: department
+  profile:
+    displayName: Logistics Dept
+    email: backstage-logistics@example.com
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: developer-platform
+  description: The developer-platform team
+spec:
+  type: team
+  profile:
+    displayName: Developer Platform Team
+    email: backstage-devplat@example.com
+  children: []

@@ -1,0 +1,38 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: entity-picker-demo
+  title: Test EntityPicker component
+  description: scaffolder v1beta3 template for testing EntityPicker component
+spec:
+  owner: backstage/techdocs-core
+  type: service
+
+  parameters:
+    - title: Fill in some steps
+      required:
+        - owner
+      properties:
+        owner:
+          title: Owner
+          type: string
+          description: Testing EntityPicker component
+          ui:field: EntityPicker
+          ui:options:
+            catalogFilter:
+              kind: Group
+  steps:
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      input:
+        url: ./template
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
+    - id: fetch-docs
+      name: Fetch Docs
+      action: fetch:plain
+      input:
+        targetPath: ./community
+        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
